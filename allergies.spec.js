@@ -1,11 +1,13 @@
-import { Allergies } from './allergies';
+import {
+  Allergies
+} from './allergies';
 describe('Allergies', () => {
   describe('testing for eggs allergy', () => {
     test('not allergic to anything', () => {
       const allergies = new Allergies(0);
       expect(allergies.allergicTo('eggs')).toEqual(false);
     });
-    xtest('allergic only to eggs', () => {
+    test('allergic only to eggs', () => {
       const allergies = new Allergies(1);
       expect(allergies.allergicTo('eggs')).toEqual(true);
     });
