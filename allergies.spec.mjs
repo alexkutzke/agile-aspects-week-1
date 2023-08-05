@@ -1,4 +1,4 @@
-import { Allergies } from './allergies';
+import { Allergies } from './allergies.mjs';
 describe('Allergies', () => {
   describe('testing for eggs allergy', () => {
     test('not allergic to anything', () => {

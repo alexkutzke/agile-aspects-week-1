@@ -22,7 +22,7 @@
   },
   "dependencies": {},
   "scripts": {
-    "test": "jest ./*",
+    "test": "jest allergies.spec.mjs",
     "watch": "jest --watch ./*",
     "lint": "eslint ."
   }
