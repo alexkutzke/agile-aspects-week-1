@@ -1,7 +1,4 @@
-//
-// This is only a SKELETON file for the 'Allergies' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
+// Jessika Tironi e Maria Eduarda Franke
 
 export class Allergies {
   constructor() {
@@ -12,8 +9,7 @@ export class Allergies {
     throw new Error('Remove this statement and implement this function');
   }
 
-  allergicTo() {
+  isAllergicTo() {
     throw new Error('Remove this statement and implement this function');
   }
 }
-
