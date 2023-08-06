@@ -1,19 +1,58 @@
-//
-// This is only a SKELETON file for the 'Allergies' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
+const ALLERGENS = {
+  1: "eggs",
+  2: "peanuts",
+  4: "shellfish",
+  8: "strawberries",
+  16: "tomatoes",
+  32: "chocolate",
+  64: "pollen",
+  128: "cats"
+};
 
 export class Allergies {
-  constructor() {
-    throw new Error('Remove this statement and implement this function');
+  constructor(allergieId) {
+    this.allergies = this.setAllergies(allergieId);
+  }
+
+  setAllergies(allergieId) {
+    const allergies = [];
+
+    const binaryRepresentation = this.stringToBinary(allergieId);
+    const reverseBinaryRepresentation = this.reverseString(binaryRepresentation);
+
+    for (let index = 0; index < reverseBinaryRepresentation.length; index++) {      
+      const currentBit = reverseBinaryRepresentation[index];
+
+      if(currentBit == 1){
+        const retrievedAllergie = this.retrieveAllergie(index);
+        allergies.push(retrievedAllergie);
+      }
+    }
+    return allergies;
   }
 
   list() {
-    throw new Error('Remove this statement and implement this function');
+    return this.allergies;
   }
 
-  allergicTo() {
-    throw new Error('Remove this statement and implement this function');
+  allergicTo(allergen) {
+    return this.allergies.includes(allergen);
+  }
+
+  stringToBinary(str) {
+    return str.toString(2);
+  }
+
+  binaryToInteger(bit) {
+    return Math.pow(2, bit)
+  }
+
+  reverseString(str) {
+    return str.split('').reverse().join('');
+  }    
+
+  retrieveAllergie(index) {
+    const key = this.binaryToInteger(index);
+    return ALLERGENS[key];
   }
 }
-
