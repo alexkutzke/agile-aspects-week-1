@@ -1,58 +1,30 @@
 const ALLERGENS = {
-  1: "eggs",
-  2: "peanuts",
-  4: "shellfish",
-  8: "strawberries",
-  16: "tomatoes",
-  32: "chocolate",
-  64: "pollen",
-  128: "cats"
+  eggs: 1,
+  peanuts: 2,
+  shellfish: 4,
+  strawberries: 8,
+  tomatoes: 16,
+  chocolate: 32,
+  pollen: 64,
+  cats: 128
 };
 
 export class Allergies {
   constructor(allergieId) {
-    this.allergies = this.setAllergies(allergieId);
+    this.allergieId = allergieId;
   }
 
-  setAllergies(allergieId) {
+  list() {
     const allergies = [];
-
-    const binaryRepresentation = this.stringToBinary(allergieId);
-    const reverseBinaryRepresentation = this.reverseString(binaryRepresentation);
-
-    for (let index = 0; index < reverseBinaryRepresentation.length; index++) {      
-      const currentBit = reverseBinaryRepresentation[index];
-
-      if(currentBit == 1){
-        const retrievedAllergie = this.retrieveAllergie(index);
-        allergies.push(retrievedAllergie);
+    for (const allergie in ALLERGENS) {
+      if (this.allergicTo(allergie)) {
+        allergies.push(allergie);
       }
     }
     return allergies;
   }
 
-  list() {
-    return this.allergies;
-  }
-
-  allergicTo(allergen) {
-    return this.allergies.includes(allergen);
-  }
-
-  stringToBinary(str) {
-    return str.toString(2);
-  }
-
-  binaryToInteger(bit) {
-    return Math.pow(2, bit)
-  }
-
-  reverseString(str) {
-    return str.split('').reverse().join('');
-  }    
-
-  retrieveAllergie(index) {
-    const key = this.binaryToInteger(index);
-    return ALLERGENS[key];
+  allergicTo(allergie) {
+    return (this.allergieId & ALLERGENS[allergie]) !== 0;
   }
 }
