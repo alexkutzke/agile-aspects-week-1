@@ -1,21 +1,45 @@
-//
-// This is only a SKELETON file for the 'Allergies' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-//fazer a conversão de decimal pra binario no construtor
+// Array com as alergias
+const allergies = [
+  "eggs",
+  "peanuts",
+  "shellfish",
+  "strawberries",
+  "tomatoes",
+  "chocolate",
+  "pollen",
+  "cats"
+];
 
-
+// Classe Allergies
 export class Allergies {
   constructor(score) {
     this.score = score;
+    this.myAllergies = [];
+
+    // Converte o score em binário e reverte para trabalhar da esquerda para a direita
+    const binaryScore = convertToBin(this.score).split('').reverse();
+
+    // Percorre o array de alergias e verifica se o bit correspondente está definido em 1
+    for (let i = 0; i < binaryScore.length && i < allergies.length; i++) {
+      if (binaryScore[i] === '1') {
+        // Se o bit estiver definido, adiciona a alergia ao array myAllergies
+        this.myAllergies.push(allergies[i]);
+      }
+    }
   }
 
+  // Retorna a lista de alergias
   list() {
-    throw new Error('Remove this statement and implement this function');
+    return this.myAllergies;
   }
 
+  // Verifica se é alérgico a um item específico
   allergicTo(item) {
-    //if(this.score....)
-    if (item === 'eggs') return (false);
+    return this.myAllergies.includes(item);
   }
+}
+
+// Função para converter o número em binário
+function convertToBin(score) {
+  return (score >>> 0).toString(2);
 }

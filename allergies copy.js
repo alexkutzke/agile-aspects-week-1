@@ -8,6 +8,7 @@ const ALLERGENT_SCORE_MAP = {
   'pollen': 64,
   'cats': 128
 };
+
 const ALLERGIES = Object.keys(ALLERGENT_SCORE_MAP);
 export class Allergies {
   constructor(allergyScore) {
