@@ -4,6 +4,8 @@ Setor de Educação Profissional e Tecnológica - SEPT
 
 Universidade Federal do Paraná - UFPR
 
+Alunos: Raphael e Luccas Kayure
+
 ---
 
 Aspectos Ágeis de Programação
@@ -69,7 +71,6 @@ score is 257, your program should only report the eggs (1) allergy.
 ### Based on
 
 Jumpstart Lab Warm-up - http://jumpstartlab.com
-
 
 ...
 
